@@ -1,7 +1,7 @@
-/* --- Import a fitting font from Google Fonts --- */
+/* --- Import Google Fonts --- */
 @import url('https://fonts.googleapis.com/css2?family=Crete+Round&family=Special+Elite&display=swap');
 
-/* --- General Body Styling for the Old School Vibe --- */
+/* --- General Body Styling for Old School Vibe --- */
 html, body {
   height: 100%;
   margin: 0;
@@ -10,11 +10,11 @@ html, body {
 
 body {
   background-image: url('/assets/bg.jpg'); /* your image */
-  background-size: cover;                  /* cover the whole screen */
+  background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-color: #3b3a32;              /* fallback color */
+  background-color: #3b3a32; /* fallback */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,34 +24,31 @@ body {
 
 /* --- Main Lock Panel --- */
 .lock-container {
-  background-color: rgba(90, 84, 74, 0.9); /* Added slight transparency for depth */
-  backdrop-filter: blur(4px); /* Frosted glass effect over the background */
+  background-color: rgba(90, 84, 74, 0.9);
+  backdrop-filter: blur(4px);
   border: 3px solid #332d24;
   border-radius: 8px;
-  padding: 25px 35px;
+  padding: 20px 25px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  width: 100%; /* Make it fluid */
-  max-width: 520px; /* Set a max-width for large screens */
+  gap: 15px;
+  width: 100%;
+  max-width: 480px;
   position: relative;
-  margin:10px;
+  margin: 10px;
 }
 
-/* Optional: Add an overlay texture for more grunge */
+/* --- Optional Overlay Texture --- */
 .lock-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('https://www.transparenttextures.com/patterns/cracked-light.png');
-    opacity: 0.08;
-    pointer-events: none;
-    border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('https://www.transparenttextures.com/patterns/cracked-light.png');
+  opacity: 0.08;
+  pointer-events: none;
+  border-radius: 8px;
 }
 
 /* --- Title Text --- */
@@ -61,23 +58,24 @@ h1 {
   text-transform: uppercase;
   font-size: 2rem;
   letter-spacing: 1px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  margin: 0 0 15px 0;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  margin: 0 0 10px 0;
   text-align: center;
   border-bottom: 1px dashed #7a7366;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
   width: 100%;
 }
 
 /* --- Container for the Dials --- */
 .lock {
   display: flex;
-  gap: 12px;
+  gap: 6px; /* smaller gap to fit all digits */
   background-color: #4a453c;
-  padding: 15px;
+  padding: 8px;
   border-radius: 6px;
   border: 1px solid #2d2820;
   box-shadow: inset 2px 2px 5px rgba(0,0,0,0.4);
+  justify-content: center;
 }
 
 /* --- Individual Dial Column --- */
@@ -85,25 +83,25 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 /* --- The Number Display --- */
 .digit {
   font-family: 'Special Elite', cursive;
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 700;
   color: #f0e6d6;
   background-color: #3b3a32;
-  width: 50px;
-  height: 90px;
+  width: 45px;  /* narrower */
+  height: 75px; /* slightly shorter */
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 4px;
   border: 1px solid #222;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
   transition: transform 0.3s ease, opacity 0.3s ease;
   user-select: none;
   overflow: hidden;
@@ -114,10 +112,10 @@ h1 {
   background-color: #7a7366;
   border: 1px solid #5a544a;
   color: #222;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   cursor: pointer;
-  width: 45px;
-  height: 28px;
+  width: 40px;
+  height: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,8 +133,8 @@ h1 {
 }
 
 .arrow:active:not(:disabled) {
-    transform: translateY(1px);
-    box-shadow: 0 0 2px rgba(0,0,0,0.3);
+  transform: translateY(1px);
+  box-shadow: 0 0 2px rgba(0,0,0,0.3);
 }
 
 .arrow:disabled {
@@ -148,14 +146,14 @@ h1 {
 /* --- Main "Enter" Button --- */
 .lock-container button:not(.arrow) {
   font-family: 'Crete Round', serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
   color: #fff;
   background-color: #964f4f;
   border: none;
   border-bottom: 3px solid #6b3737;
-  padding: 12px 25px;
+  padding: 10px 20px;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.1s ease-in-out;
@@ -182,9 +180,9 @@ h1 {
   opacity: 0.6;
 }
 
-/* --- Message Area (Success/Error) --- */
+/* --- Message Area --- */
 .message {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: bold;
   height: 22px;
   text-align: center;
@@ -194,13 +192,13 @@ h1 {
 
 .message.success {
   color: #79a65f;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
   animation: pulse-success 1s ease-in-out;
 }
 
 .message.error {
   color: #c96060;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
   animation: shake 0.5s ease-in-out;
 }
 
@@ -224,48 +222,46 @@ h1 {
 }
 
 @keyframes pulse-success {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.02); }
-    100% { transform: scale(1); }
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
 }
 
-
-/* --- ✅ Responsive Design for Mobile Phones (screens smaller than 640px) --- */
+/* --- ✅ Responsive Design for Mobile Phones --- */
 @media (max-width: 640px) {
   .lock-container {
-    padding: 20px 15px; /* Reduced padding */
-    gap: 15px;
+    padding: 15px 10px;
+    gap: 12px;
   }
 
   h1 {
-    font-size: 1.6rem; /* Smaller title */
+    font-size: 1.5rem;
   }
 
   .lock {
-    padding: 10px; /* Tighter padding */
-    gap: 8px; /* Tighter gap between dials */
-    /* Allows dials to wrap if screen is extremely narrow */
-    flex-wrap: wrap;
-    justify-content: center;
+    padding: 6px;
+    gap: 5px;
+    flex-wrap: nowrap; /* keep all 4 digits in one line */
   }
 
   .digit {
-    font-size: 3rem;   /* Smaller digit font */
-    width: 60px;       /* Narrower digit container */
-    height: 80px;      /* Shorter digit container */
+    font-size: 2.3rem;
+    width: 38px;
+    height: 65px;
   }
 
   .arrow {
-    width: 40px;       /* Narrower arrow button */
-    height: 25px;      /* Shorter arrow button */
+    width: 32px;
+    height: 22px;
+    font-size: 1rem;
   }
 
   .lock-container button:not(.arrow) {
-    font-size: 1rem;       /* Smaller button text */
-    padding: 12px 22px;    /* Adjusted button padding */
+    font-size: 0.95rem;
+    padding: 10px 18px;
   }
 
   .message {
-    font-size: 0.9rem; /* Smaller message text */
+    font-size: 0.85rem;
   }
 }
