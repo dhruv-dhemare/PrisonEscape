@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./Lock.css";
+import { useNavigate } from "react-router-dom";
 import bg from "../assets/bg.jpg";
 
 const Lock = () => {
+  const navigate = useNavigate();
   const [digits, setDigits] = useState([0, 0, 0, 0]);
   const [animating, setAnimating] = useState([false, false, false, false]);
   const [message, setMessage] = useState("");
@@ -64,14 +66,15 @@ const Lock = () => {
     if (lockout) return; // 🚫 block button press during lockout
 
     if (JSON.stringify(digits) === JSON.stringify(secret)) {
-      setMessage("✔ Correct!");
-      setTimeout(() => {
-        window.location.href = "/nextpage";
-      }, 1000);
-    } else {
+        setMessage("✔ Correct!");
+        setTimeout(() => {
+            navigate("/nextpage");  // ✅ use navigate
+        }, 1000);
+    }
+    else {
       setMessage("❌ Wrong Code! Reloading in 5...");
       setLockout(true);
-      setCountdown(5); // start countdown
+      setCountdown(5); 
     }
   };
 
